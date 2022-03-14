@@ -4,6 +4,7 @@ from auth_info import *
 from send_msg import send_message
 import os
 import time
+import re
 
 txt_msg = open(f"{os.getcwd()}//text_msg.txt", 'r').read()
 def run():
