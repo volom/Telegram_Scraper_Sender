@@ -10,7 +10,10 @@ def run():
     with open('members.csv', 'r') as m:
         for receiver in m.readlines()[1:]:
             receiver = receiver.split('\t')[0]
-            receiver = f"@{receiver}"
+            
+            if bool(re.search('[a-zA-Z]', receiver)) and receiver[0] != "@":
+                receiver = f"@{receiver}"
+                
             try:   
                 send_message(receiver, txt_msg)
                 print(f"The message was sent to {receiver}")
